@@ -1,0 +1,24 @@
+sort1 uses: bubble sort
+
+How do you know?:
+I know that bubble sort has O(n^2) running time which means it should be easier to sort an already sorted file for bubble sort as we don't need to make any swap on the first pass.
+I had my guess based which, between sort1, sort2, sort3 could sort the biggest sorted.txt in the less time possible. Sort3 came out as a winner.
+Also, we know that for bubble sort, the worst case scenario is sorting a reversed.txt file as it would have to "bubble" each of the n elemnts all the way across the array.
+My guess was reinforced as I tried sort 1 on the reversed.txt files and saw how slow it was.
+
+
+sort2 uses: merge sort
+
+How do you know?:
+Based on what we learned in the class, merge sort has a O (n log n) and should be better at sorting data that
+is random compared to selection sort and buble sort.
+Running the test on multiples randon.txt files, sort 2 was my guess. That was my first guess and I then tried to find the bubble sort.
+
+sort3 uses: selection sort
+
+How do you know?:
+I first tried to guess which sort file uses merge sort and which file uses bubble sort as I already had some information based on what we learned in the course on how to "easily" find theses.
+After having found these two, the only remaining was sort1. The remaining sort could only be the selection sort.
+
+I'd like to add that, from the course, we learned that the worst case scenario and best case scenario would be the same for selection sort, simply because there is no way
+to kknow if the array is sorted until we go through the process for all elements in the array. That's also why I didn't try to find this one first.
