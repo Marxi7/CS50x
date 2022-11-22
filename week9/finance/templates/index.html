@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio View
+{% endblock %}
+
+{% block main %}
+<main class="container py-5 text-center">  
+    <h1>Portfolio View</h1> 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-start">Name</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">TOTAL</th>
+            </tr>
+        </thead>
+
+        <tbody class="table-group-divider">
+            {% for row in stocks %}
+            <tr>
+                <td class="text-start"> {{ row.symbol }} </td>
+                <td class="text-start"> {{ row.name }} </td>
+                <td class="text-end"> {{ row.shares }} </td>
+                <td class="text-end"> {{ usd(row.price) }} </td>
+                <td class="text-end"> {{ usd(row.shares * row.price) }} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">Cash</td>
+                <td class="border-0 text-end"><b> {{ usd(cash) }}</b></td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4">TOTAL</td>
+                <td class="border-0 text-end">{{ usd(total) }}</td>
+            </tr>
+        </tfoot>
+    </table>
+</main>
+{% endblock %}

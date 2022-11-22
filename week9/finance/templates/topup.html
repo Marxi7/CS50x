@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Top Up
+{% endblock %}
+
+{% block main %}
+    <h1>Top Up Your Account</h1>
+    <form action="/top_up" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto"  name="topup" placeholder="Enter Amount" type="number">
+        </div>
+        <button class="btn btn-primary" type="Top Up">Top Up</button>
+    </form>
+{% endblock %}

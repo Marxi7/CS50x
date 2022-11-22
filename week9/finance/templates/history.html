@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title %}
+     History
+{% endblock %}
+
+{% block main %}
+<h1>Transactions History</h1>
+<main class="container py-5 text-center" id="main">    
+  <table class="table table-striped" id="transaction_table">
+      <thead>
+          <tr>
+              <th class="text-start">Symbol</th>
+              <th class="text-start">Transaction Type</th>
+              <th class="text-end">Shares</th>
+              <th class="text-end">Price</th>
+              <th class="text-end">Time</th>
+              
+          </tr>
+      </thead>
+
+      <tbody class="table-group-divider">
+          {% for transaction in transactions %}
+          <tr>
+              <td class="text-start"> {{ transaction.symbol.upper() }} </td>
+              <td id="transaction_type" class="text-start"> {{ transaction.type }} </td>
+              <td class="text-end"> {{ transaction.shares }} </td>
+              <td class="text-end"> {{ usd(transaction.price) }} </td>
+              <td class="text-end"> {{ transaction.time }} </td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+
+  <h2>Deposits & Withdrawals History</h2>
+  <table class="table table-striped" id="movement_table">
+    <thead>
+        <tr>
+            <th class="text-start">Type</th>
+            <th class="text-end">Amount</th>
+            <th class="text-end">Time</th>
+            
+        </tr>
+    </thead>
+
+    <tbody class="table-group-divider">
+        {% for i in movements %}
+        <tr>
+            <td class="text-start"> {{ i.type }} </td>
+            <td class="text-end"> {{ usd(i.amount) }} </td>
+            <td class="text-end"> {{ i.time }} </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+ 
+</main>
+{% endblock %}
