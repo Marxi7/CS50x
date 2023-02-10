@@ -128,7 +128,6 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    // TODO
     for (int i = 0; i < candidate_count; i++)
     {
         if (strcmp(name, candidates[i].name) == 0)
@@ -144,7 +143,6 @@ bool vote(int voter, int rank, string name)
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
 {
-    // TODO
     for (int i = 0; i < voter_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
@@ -163,7 +161,6 @@ void tabulate(void)
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    // TODO
     for (int i = 0; i < voter_count; i++)
     {
         int half_total_vote = voter_count / 2;
@@ -179,12 +176,9 @@ bool print_winner(void)
 // Return the minimum number of votes any remaining candidate has
 int find_min(void)
 {
-    // TODO
     int minimum_number_vote = MAX_VOTERS;
     for (int i = 0; i < candidate_count; i++)
     {
-        //for each loop execution, if someone is not eleiminated and has less vote than the previous one,
-        //its vote becomes the minimum number vote.
         if (!candidates[i].eliminated && candidates[i].votes < minimum_number_vote)
         {
             minimum_number_vote = candidates[i].votes;
@@ -196,7 +190,6 @@ int find_min(void)
 // Return true if the election is tied between all candidates, false otherwise
 bool is_tie(int min)
 {
-    // TODO
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes != min && !candidates[i].eliminated)
@@ -210,7 +203,6 @@ bool is_tie(int min)
 // Eliminate the candidate (or candidates) in last place
 void eliminate(int min)
 {
-    // TODO
     for (int i = 0; i < candidate_count; i++)
     {
         //if a candidate has the less amount of votes, he becomes eliminated.
