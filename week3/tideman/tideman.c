@@ -121,12 +121,8 @@ void record_preferences(int ranks[])
     // one rank for example will look like that if there are 3 candidates : [0, 2, 1] qui veut dire : 1ère Alice, 2ème charlie (3ème candidat), 3ème Bob (2ème candidat)
     for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = i + 1; j < candidate_count; j++) //j coniste à nous faire ajouté 1 points (de pénalité) à tous ceux qui viennent après i car dans l'ordre du vote ils sont après le 1er
+        for (int j = i + 1; j < candidate_count; j++) 
         {
-            // for example here, imaginons [0, 2, 1] ou 0 est i est le premier candidat voté,
-            //et j est le candidat juste après (carj=  i+1), donc (2), à l'intersection de ces deux pointeurs dans le tableau, un point sera ajouté.
-            //Car l'array est la préférence des voteurs dans l'ordre.
-            //C'est pourquoi on compare d'abord de gauche à droite (car la gauche est préférée à la droite)
             //preferences [i][j] = le nombre de personne qui préfère i à j (de gauche à droite.)
             preferences[ranks[i]][ranks[j]]++;
         }
@@ -151,8 +147,8 @@ void add_pairs(void)
             {
                 pairs[pair_count].winner = i;
                 pairs[pair_count].loser = j;
-                ////ici, dès que le programme a choisis la paire la plus grande, le ++ signifie simplement qu'il faut passer à la next step dès que c'est fait.
-                //En l'occurence ici, réitérer jusqu'é ce que toutes les paires soient à jour.
+                
+                //En l'occurence ici, réitérer jusqu'à ce que toutes les paires soient à jour.
                 pair_count++;
             }
             else if (candi_1 < candi_2)
@@ -227,7 +223,6 @@ void lock_pairs(void)
 // Print the winner of the election
 void print_winner(void)
 {
-    // TODO
     //Looking for a candidate that has no arrows pointing at them
     for (int i = 0; i < candidate_count; i++)
     {
